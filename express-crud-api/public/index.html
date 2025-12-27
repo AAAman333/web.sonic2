@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everfree – Home</title>
+  <link rel="icon" type="image/png" href="images/111.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #fff8e7;
+      font-family: 'Playfair Display', serif;
+      color: #2e2e2e;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #fde3ec;
+      padding: 20px 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .nav-link {
+      color: #e13690 !important;
+      font-weight: 600;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav .nav-link:hover {
+      color: #c9247a !important;
+      text-decoration: underline;
+    }
+
+    .nav-item:first-child .nav-link {
+      font-weight: 700;
+    }
+
+    .carousel-item img {
+      object-fit: cover;
+      height: 450px;
+      filter: brightness(90%);
+    }
+
+    .carousel-caption {
+      background: rgba(255, 248, 231, 0.85);
+      border-radius: 12px;
+      padding: 20px;
+      color: #e13690;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #e13690;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #444;
+    }
+
+    /* Weather block */
+    .weather-everfree {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .weather-box {
+      background: linear-gradient(135deg, #fde3ec, #fff8e7);
+      padding: 25px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .weather-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #e13690;
+      margin-bottom: 10px;
+    }
+
+    .weather-content {
+      font-size: 1.05rem;
+      color: #444;
+    }
+
+    .weather-content .temp {
+      display: block;
+      font-size: 2.2rem;
+      color: #e13690;
+      font-weight: 600;
+    }
+
+    .weather-content .desc {
+      display: block;
+      margin-top: 5px;
+      font-style: italic;
+    }
+
+    .weather-content .details {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .bouquet-gallery {
+      padding: 50px 30px;
+    }
+
+    .bouquet {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      margin-bottom: 30px;
+      height: 350px;
+    }
+
+    .bouquet img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .bouquet:hover img {
+      transform: scale(1.05);
+    }
+
+    .bouquet::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .bouquet:hover::after {
+      height: 60%;
+      opacity: 1;
+    }
+
+    .bouquet-info {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    .bouquet:hover .bouquet-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fact-everfree {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .fact-box {
+      background: linear-gradient(135deg, #fde3ec, #fff8e7);
+      padding: 25px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .fact-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #e13690;
+      margin-bottom: 10px;
+    }
+
+    .fact-content {
+      font-size: 1.05rem;
+      color: #444;
+      font-style: italic;
+    }
+
+    footer {
+      background-color: #ffe1ec;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    footer h5 {
+      color: #e13690;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #fde3ec;">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html" style="color:#e13690 !important;">
+        <img src="images/111.png" alt="Everfree Logo" style="height: 40px; margin-right: 10px;">
+        <span style="font-size: 1.6rem;">Everfree</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index2.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="index3.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index5.html">Blog</a></li>
+          <li class="nav-item ms-3">
+            <a class="nav-link position-relative" href="index4.html" title="Cart">
+              <span id="cart-icon" style="font-size:20px; color:#e13690;">🛒</span>
+              <span id="cart-count" class="badge rounded-pill" style="
+                background:#e13690; color:white; position:absolute; top:-8px; right:-10px; font-size:12px; display:none;">
+                0
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/c1.jpg" class="d-block w-100" alt="Magic in Every Petal">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Magic in Every Petal</h3>
+        <p>Discover the harmony of color, scent, and emotion.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/c2.jpg" class="d-block w-100" alt="Everfree Blossoms">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Everfree Blossoms</h3>
+        <p>Where friendship blooms and beauty thrives.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/c3.jpg" class="d-block w-100" alt="Nature’s Artistry">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Nature’s Artistry</h3>
+        <p>Each bouquet is crafted with a touch of Everfree magic.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<section class="hero">
+  <h2>Welcome to Everfree</h2>
+  <p>
+    Step into the enchanted garden where friendship meets creativity.
+    Every bouquet is a reflection of harmony, beauty, and a little bit of magic.
+  </p>
+</section>
+
+<section class="weather-everfree">
+  <div class="weather-box">
+    <div class="weather-title">
+      🌸 Weather in Astana
+    </div>
+    <div id="weather-info" class="weather-content">
+      Loading weather...
+    </div>
+  </div>
+</section>
+
+<section class="fact-everfree">
+  <div class="fact-box">
+    <div class="fact-title">
+      🌿 Flower Fact of the Day
+    </div>
+    <div id="flower-fact" class="fact-content">
+      Loading flower fact...
+    </div>
+  </div>
+</section>
+
+<section class="bouquet-gallery container">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <div class="bouquet">
+        <img src="images/1.jpg" alt="Bloom of Friendship">
+        <div class="bouquet-info">
+          <h5>Bloom of Friendship</h5>
+          <p>Gentle pink tones symbolizing care and kindness.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="bouquet">
+        <img src="images/2.jpg" alt="Magic Petals">
+        <div class="bouquet-info">
+          <h5>Magic Petals</h5>
+          <p>A spellbinding bouquet full of grace and color.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="bouquet">
+        <img src="images/3.jpg" alt="Eternal Grace">
+        <div class="bouquet-info">
+          <h5>Eternal Grace</h5>
+          <p>Soft white blooms that whisper timeless elegance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <div class="bouquet">
+        <img src="images/4.jpg" alt="Twilight Harmony">
+        <div class="bouquet-info">
+          <h5>Twilight Harmony</h5>
+          <p>Delicate lavender petals reflecting calm and balance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>Everfree Studio</h5>
+        <p style="margin:0">📍 Astana IT Avenue, Kazakhstan</p>
+        <p style="margin:0">🕒 Mon–Sat: 9:00 AM – 8:00 PM</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact</h5>
+        <p style="margin:0">☎️ +7 (778) 275-57630</p>
+        <p style="margin:0">✉️ hello@everfreeflowers.com</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Follow</h5>
+        <p style="margin:0">
+          <a href="#" style="color:#2e2e2e; text-decoration:none; margin-right:8px">Instagram</a>
+          <a href="#" style="color:#2e2e2e; text-decoration:none">Telegram</a>
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:12px; color:#666; font-size:14px">
+      © 2025 Everfree Flowers | Friendship in Every Bloom
+    </div>
+  </div>
+</footer>
+
+<script>
+  $(document).ready(function() {
+    $("body").hide().fadeIn(300);
+
+    $("nav a").on("click", function(e) {
+      const link = $(this).attr("href");
+      if (link && link !== window.location.pathname.split("/").pop()) {
+        e.preventDefault();
+        $("body").fadeOut(300, function() {
+          window.location.href = link;
+        });
+      }
+    });
+  });
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>

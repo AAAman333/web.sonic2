@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everfree | About</title>
+  <link rel="icon" type="image/png" href="images/111.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #fff8e7;
+      color: #2e2e2e;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fde3ec;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav .nav-link {
+     color: #e13690 !important;
+     font-weight: 600;
+     margin: 0 10px;
+     transition: color 0.3s ease;
+    }
+
+    nav .nav-link:hover {
+     color: #c9247a !important;
+     text-decoration: underline;
+    }
+
+    .nav-item:nth-child(3) .nav-link {
+        font-weight: 700;
+    }
+
+    .about-section {
+      padding: 70px 15px 40px;
+    }
+
+    .about-section h1 {
+      color: #e13690;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .bio {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      font-weight: 550;
+      color: #444;
+    }
+
+    .about-img,
+    .studio-gallery img,
+    .workshops img {
+      border-radius: 12px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .about-img:hover,
+    .studio-gallery img:hover,
+    .workshops img:hover {
+      transform: scale(1.03);
+    }
+
+    .section {
+      background-color: #fff0f3;
+      padding: 30px 20px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      border-top: 2px solid #ffe1ec;
+      border-bottom: 2px solid #ffe1ec;
+    }
+
+    .section h3 {
+      color: #e13690;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .skills ul {
+      padding-left: 20px;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background-color: #ffe1ec;
+      text-align: center;
+      padding: 28px 0;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    footer h5 {
+        color: #e13690;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #fde3ec;">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center fw-bold" href="../projectik/jsjsjs/express-crud-api/index.html" style="color:#e13690 !important;">
+        <img src="images/111.png" alt="Everfree Logo" style="height: 40px; margin-right: 10px;">
+        <span style="font-size: 1.6rem;">Everfree</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="../projectik/jsjsjs/express-crud-api/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../projectik/jsjsjs/express-crud-api/index2.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="index3.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index5.html">Blog</a></li>
+          <li class="nav-item ms-3">
+            <a class="nav-link position-relative" href="index4.html" title="Cart">
+              <span id="cart-icon" style="font-size:20px; color:#e13690;">🛒</span>
+              <span id="cart-count" class="badge rounded-pill" style="
+                background:#e13690; color:white; position:absolute; top:-8px; right:-10px; font-size:12px; display:none;">
+                0
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="container about-section fade-in">
+  <h1>About Everfree</h1>
+
+  <div class="row align-items-center section">
+    <div class="col-md-5">
+      <img src="images/14.jpg" alt="Florist at work" class="about-img" style="width:75%; max-height:320px; margin:0 auto;">
+    </div>
+    <div class="col-md-7">
+      <p class="bio">
+        Everfree is more than a flower shop — it’s a space where emotions bloom.
+        Our philosophy is rooted in harmony, care, and the simple beauty of nature.
+        Every bouquet is crafted with attention to the smallest details, turning fresh petals into stories of affection and joy.
+      </p>
+      <p class="bio">
+        Whether it's a gentle surprise or a grand celebration, we believe flowers can express what words cannot.
+        That’s why every creation carries a bit of our soul and a touch of friendship’s magic.
+      </p>
+    </div>
+  </div>
+
+  <div class="studio-gallery fade-in section">
+    <h3>Inside the Everfree Studio</h3>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <img src="images/13.jpg" alt="Our Studio Exterior" style="height:320px; box-shadow:0 4px 15px rgba(0,0,0,0.15);">
+      </div>
+      <div class="col-md-6">
+        <img src="images/12.jpg" alt="Florists at Work" style="height:320px; box-shadow:0 4px 15px rgba(0,0,0,0.15);">
+      </div>
+    </div>
+  </div>
+
+  <div class="workshops fade-in section">
+    <h3>Join Our Flower Workshops</h3>
+    <p style="font-size:1.1rem; line-height:1.7; max-width:700px; margin:0 auto 20px;">
+      Everfree offers hands-on masterclasses for anyone who wants to experience the art of floristry.
+      Learn to create your own bouquets, explore color harmony, and express yourself through petals and scent.
+      Our workshops are full of laughter, creativity, and warm tea — perfect for friends, couples, or solo dreamers.
+    </p>
+    <img src="images/11.jpg" alt="Workshop Photo" style="width:75%; max-width:320px; height:320px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin: 0 auto;">
+  </div>
+
+  <div class="skills fade-in section">
+    <h3>Our Floristry Skills</h3>
+    <ul style="list-style-type: '🌸 '; color:#e13690;">
+      <li style="color:#2e2e2e;">Composition Design — Finding beauty in balance and form</li>
+      <li style="color:#2e2e2e;">Seasonal Arrangements — Bringing each season’s essence to life</li>
+      <li style="color:#2e2e2e;">Personalized Gifts — Crafted to tell your unique story</li>
+      <li style="color:#2e2e2e;">Magical Touch — Inspired by the harmony of friendship</li>
+    </ul>
+  </div>
+</main>
+
+
+<footer>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>Everfree Studio</h5>
+        <p style="margin:0">📍 Astana IT Avenue, Kazakhstan</p>
+        <p style="margin:0">🕒 Mon–Sat: 9:00 AM – 8:00 PM</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact</h5>
+        <p style="margin:0">☎️ +7 (778) 275-57630</p>
+        <p style="margin:0">✉️ hello@everfreeflowers.com</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Follow</h5>
+        <p style="margin:0">
+          <a href="#" style="color:#2e2e2e; text-decoration:none; margin-right:8px">Instagram</a>
+          <a href="#" style="color:#2e2e2e; text-decoration:none">Telegram</a>
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:12px; color:#666; font-size:14px">
+      © 2025 Everfree Flowers | Friendship in Every Bloom
+    </div>
+  </div>
+</footer>
+
+<script>
+  $(document).ready(function() {
+   $("body").hide().fadeIn(300);
+
+   $("nav a").on("click", function(e) {
+     const link = $(this).attr("href");
+     if (link && link !== window.location.pathname.split("/").pop()) {
+         e.preventDefault();
+         $("body").fadeOut(300, function() {
+             window.location.href = link;
+         });
+     }
+   });
+ });
+ (function() {
+   const checkVisibility = () => {
+       $(".fade-in").each(function () {
+         const top = $(this).offset().top;
+         const winTop = $(window).scrollTop();
+         if (top < winTop + $(window).height() - 100) {
+           $(this).addClass("visible");
+         }
+       });
+   };
+
+   $(window).on("scroll", checkVisibility);
+   checkVisibility();
+ })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Bloom of Friendship",
+    "description": "Gentle pink tones symbolizing care and kindness.",
+    "price": 21000
+  },
+  {
+    "id": 2,
+    "name": "Magic Petals",
+    "description": "A spellbinding bouquet full of grace and color.",
+    "price": 34000
+  },
+  {
+    "id": 3,
+    "name": "Twilight Harmony",
+    "description": "Delicate lavender petals reflecting calm and balance.",
+    "price": 27000
+  },
+  {
+    "id": 4,
+    "name": "Eternal Grace",
+    "description": "Soft white blooms that whisper timeless elegance.",
+    "price": 25000
+  },
+  {
+    "id": 5,
+    "name": "Petal Whispers",
+    "description": "Soft pastel roses, pure as friendship itself.",
+    "price": 29000
+  },
+  {
+    "id": 6,
+    "name": "Harmony Bloom",
+    "description": "Fresh peonies and tulips bringing peace to the heart.",
+    "price": 31000
+  },
+  {
+    "id": 7,
+    "name": "Spring's Kiss",
+    "description": "A lively collection of blossoms to brighten any day.",
+    "price": 23000
+  },
+  {
+    "id": 8,
+    "name": "Dreamlight",
+    "description": "Soft glowing hues inspired by twilight and dreams.",
+    "price": 26000
+  }
+]

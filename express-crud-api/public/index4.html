@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everfree | Cart</title>
+  <link rel="icon" type="image/png" href="images/111.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #fff8e7;
+      color: #2e2e2e;
+      overflow-x: hidden;
+    }
+    header {
+        background-color: #fde3ec;
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    nav .nav-link {
+     color: #e13690 !important;
+     font-weight: 600;
+     margin: 0 10px;
+     transition: color 0.3s ease;
+    }
+
+    nav .nav-link:hover {
+     color: #c9247a !important;
+     text-decoration: underline;
+    }
+
+    .nav-item:last-child .nav-link {
+        font-weight: 700;
+    }
+
+    h1 {
+        color: #e13690;
+        text-align: center;
+        font-weight: 700;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .cart-table { border: 1px solid #ddd; border-collapse: collapse; }
+
+    .cart-table th, .cart-table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .cart-table th:not(:first-child),
+    .cart-table td:not(:first-child) {
+        text-align: center;
+    }
+
+    .cart-table img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    input[type="number"] {
+        width: 60px;
+        text-align: center;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+
+    .total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-align: right;
+        margin-top: 15px;
+    }
+
+    .checkout-form {
+        background: #ffe1ec;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 30px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .checkout-form h4 {
+        color: #e13690;
+        margin-top: 20px;
+    }
+
+    .checkout-form label {
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .checkout-form input:not(.is-valid):not(.is-invalid), .checkout-form textarea:not(.is-valid):not(.is-invalid) {
+        border: 1px solid #ccc;
+    }
+
+    .checkout-form input, .checkout-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+    }
+
+    .checkout-form .invalid-feedback {
+        margin-top: -8px;
+        margin-bottom: 12px;
+        font-size: 0.9em;
+    }
+
+
+    .checkout-form button {
+        background-color: #e13690;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .checkout-form button:hover { background-color: #c12575; }
+
+    footer {
+        background-color: #ffe1ec;
+        text-align: center;
+        padding: 28px 0;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+
+    footer h5 {
+        color: #e13690;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color: #fde3ec;">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center fw-bold" href="../projectik/jsjsjs/express-crud-api/index.html" style="color:#e13690 !important;">
+        <img src="images/111.png" alt="Everfree Logo" style="height: 40px; margin-right: 10px;">
+        <span style="font-size: 1.6rem;">Everfree</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="../projectik/jsjsjs/express-crud-api/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../projectik/jsjsjs/express-crud-api/index2.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="../projectik/jsjsjs/express-crud-api/index3.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index5.html">Blog</a></li>
+          <li class="nav-item ms-3">
+            <a class="nav-link position-relative" href="index4.html" title="Cart">
+              <span id="cart-icon" style="font-size:20px; color:#e13690;">🛒</span>
+              <span id="cart-count" class="badge rounded-pill" style="
+                background:#e13690; color:white; position:absolute; top:-8px; right:-10px; font-size:12px; display:none;">
+                0
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Your Cart</h1>
+  <table class="cart-table w-100 mb-4">
+    <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Remove</th>
+    </tr>
+    </thead>
+    <tbody id="cart-body"></tbody>
+  </table>
+  <div class="total">Total: <span id="cart-total">0 ₸</span></div>
+
+  <div class="checkout-form">
+    <h3>Checkout</h3>
+
+    <form id="checkout-form-main" class="needs-validation" novalidate>
+
+      <h4 class="mt-3">1. Delivery Details</h4>
+      <label for="phone">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" placeholder="+7 (XXX) XXX-XX-XX" required pattern="\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}">
+      <div class="invalid-feedback">
+        Please enter a valid phone number, e.g., +7 (705) 123-45-67.
+      </div>
+
+      <label for="address">Delivery Address</label>
+      <input type="text" class="form-control" id="address" placeholder="Street, House/Building, Apartment" required>
+      <div class="invalid-feedback">
+        Delivery address is mandatory.
+      </div>
+
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" value="Astana" readonly>
+      <div class="invalid-feedback">
+        Please enter your city.
+      </div>
+
+      <label for="notes">Special Notes (e.g., Delivery time)</label>
+      <textarea class="form-control" id="notes" rows="3" placeholder="Leave on the porch, preferred delivery window, etc."></textarea>
+
+      <h4 class="mt-3">2. Contact & Payment</h4>
+      <label for="name">Your Name</label>
+      <input type="text" class="form-control" id="name" required>
+      <div class="invalid-feedback">
+        Please enter your name. Full name is optional.
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" required>
+      <div class="invalid-feedback">
+        Please enter a valid email address.
+      </div>
+
+      <label for="card">Card Number</label>
+      <input type="text" class="form-control" id="card" placeholder="XXXX-XXXX-XXXX-XXXX" required maxlength="19" pattern="\d{4}-\d{4}-\d{4}-\d{4}">
+      <div class="invalid-feedback">
+        Card number is required (16 digits).
+      </div>
+
+      <button type="submit" id="checkout-btn">Place Order</button>
+
+    </form>
+
+    <div id="success-msg" style="display:none; color:green; margin-top:10px; font-weight:600;">✅ Order placed successfully! We'll send a confirmation to your email.</div>
+  </div>
+</main>
+
+<footer>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5>Everfree Studio</h5>
+        <p style="margin:0">📍 Astana IT Avenue, Kazakhstan</p>
+        <p style="margin:0">🕒 Mon–Sat: 9:00 AM – 8:00 PM</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact</h5>
+        <p style="margin:0">☎️ +7 (778) 275-57630</p>
+        <p style="margin:0">✉️ hello@everfreeflowers.com</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Follow</h5>
+        <p style="margin:0">
+          <a href="#" style="color:#2e2e2e; text-decoration:none; margin-right:8px">Instagram</a>
+          <a href="#" style="color:#2e2e2e; text-decoration:none">Telegram</a>
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:12px; color:#666; font-size:14px">
+      © 2025 Everfree Flowers | Friendship in Every Bloom
+    </div>
+  </div>
+</footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const body = document.body;
+      body.style.opacity = 1;
+      body.style.transition = 'opacity 0.3s ease';
+
+      document.querySelectorAll("nav a").forEach(link => {
+          link.addEventListener("click", function(e) {
+              const href = this.getAttribute("href");
+              if (href && href !== window.location.pathname.split("/").pop()) {
+                  e.preventDefault();
+                  body.style.opacity = 0;
+                  setTimeout(() => {
+                      window.location.href = href;
+                  }, 300);
+              }
+          });
+      });
+  });
+  (function(){
+    const KEY = "everfree_cart";
+    const CART_BODY_ID = "cart-body";
+    const TOTAL_ELEM_ID = "cart-total";
+    const CART_COUNT_ID = "cart-count";
+
+    function getCart(){
+        return JSON.parse(localStorage.getItem(KEY) || "[]");
+    }
+
+    function saveCart(c){
+        localStorage.setItem(KEY, JSON.stringify(c));
+        renderCart();
+        updateBadge();
+    }
+
+    function updateBadge() {
+      const cart = getCart();
+      const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+      const el = document.getElementById(CART_COUNT_ID);
+      if (!el) return;
+
+      if (total > 0) {
+        el.style.display = "inline-block";
+        el.textContent = total;
+      } else {
+        el.style.display = "none";
+        el.textContent = 0;
+      }
+    }
+
+    function renderCart(){
+      const cart = getCart();
+      const tbody = document.getElementById(CART_BODY_ID);
+      const totalElem = document.getElementById(TOTAL_ELEM_ID);
+
+      tbody.innerHTML = "";
+      let grandTotal = 0;
+
+      if (cart.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="py-4">Your cart is empty. <a href="index2.html" class="text-decoration-none" style="color:#e13690; font-weight:600;">Go shopping!</a></td></tr>';
+          totalElem.textContent = `0 ₸`;
+          updateBadge();
+
+          const formEl = document.getElementById('checkout-form-main');
+          if(formEl) formEl.style.display = 'none';
+
+          return;
+      }
+      const formEl = document.getElementById('checkout-form-main');
+      if(formEl) formEl.style.display = 'block';
+      cart.forEach((item, idx) => {
+        const subtotal = (item.price || 0) * (item.qty || 1);
+        grandTotal += subtotal;
+
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="${item.img || 'images/placeholder.jpg'}" alt="${item.name}" class="me-3">
+              <span>${item.name}</span>
+            </div>
+          </td>
+          <td>${(item.price || 0).toLocaleString()} ₸</td>
+          <td><input type="number" class="qty-input form-control-sm" min="1" value="${item.qty}" data-index="${idx}"></td>
+          <td><span class="subtotal-amount">${subtotal.toLocaleString()} ₸</span></td>
+          <td><button class="btn btn-sm btn-danger btn-remove" data-index="${idx}" style="background-color:#e13690; border-color:#e13690;">Remove</button></td>
+        `;
+        row.querySelector(".qty-input").addEventListener("change", function(){
+          const val = parseInt(this.value, 10) || 1;
+          const currentCart = getCart();
+          currentCart[idx].qty = val;
+          saveCart(currentCart);
+        });
+
+        row.querySelector(".btn-remove").addEventListener("click", function(){
+          const currentCart = getCart();
+          currentCart.splice(idx, 1);
+          saveCart(currentCart);
+        });
+      });
+
+      totalElem.textContent = `${grandTotal.toLocaleString()} ₸`;
+      updateBadge();
+    }
+    function formatCardNumber(event) {
+        const input = event.target;
+        let value = input.value.replace(/\D/g, '');
+        let formattedValue = '';
+
+        for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) {
+                formattedValue += '-';
+            }
+            formattedValue += value[i];
+        }
+
+        input.value = formattedValue.substring(0, 19);
+    }
+
+    function formatPhoneNumber(event) {
+        const input = event.target;
+        let value = input.value.replace(/\D/g, '');
+
+        let formattedValue = '';
+        if (value.length > 0) {
+            formattedValue += '+7 ';
+        }
+        if (value.length > 1) {
+            formattedValue += '(' + value.substring(1, 4);
+        }
+        if (value.length > 4) {
+            formattedValue += ') ' + value.substring(4, 7);
+        }
+        if (value.length > 7) {
+            formattedValue += '-' + value.substring(7, 9);
+        }
+        if (value.length > 9) {
+            formattedValue += '-' + value.substring(9, 11);
+        }
+
+        if (value.length > 11) {
+            value = value.substring(0, 11);
+        }
+
+        input.value = formattedValue;
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        const cardInput = document.getElementById('card');
+        const phoneInput = document.getElementById('phone');
+
+        if(cardInput) cardInput.addEventListener('input', formatCardNumber);
+        if(phoneInput) phoneInput.addEventListener('input', formatPhoneNumber);
+
+        const form = document.getElementById('checkout-form-main');
+
+        if (form) {
+            form.addEventListener('submit', function (event) {
+                const cart = getCart();
+
+                if (cart.length === 0) {
+                    alert("Your cart is empty! Please add items before placing an order.");
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return;
+                }
+
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    setTimeout(() => {
+                        localStorage.removeItem(KEY);
+                        renderCart();
+
+                        form.reset();
+                        form.classList.remove('was-validated');
+
+                        document.getElementById("success-msg").style.display = "block";
+
+                        setTimeout(() => {
+                            document.getElementById("success-msg").style.display = "none";
+                        }, 5000);
+
+                    }, 500);
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        }
+        renderCart();
+        updateBadge();
+    });
+ })();
+</script>
+
+</body>
+</html>
