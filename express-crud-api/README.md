@@ -17,7 +17,7 @@ one extra API in addition to the Weather API to enhance your app's functionality
 
 
 
-![alt text](127.png)
+![alt text](../127.png)
 
 <br>
 
