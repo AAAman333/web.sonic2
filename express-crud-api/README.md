@@ -21,22 +21,22 @@ one extra API in addition to the Weather API to enhance your app's functionality
 
 <br>
 
-![alt text](128.png)
+![alt text](../128.png)
 
 <br>
 
-![alt text](129.png)
+![alt text](../129.png)
 
 <br>
 
-![alt text](131.png)
+![alt text](../131.png)
 
 <br>
 
-![alt text](129.png)
+![alt text](../129.png)
 <br>
 
-![alt text](133.png)
+![alt text](../133.png)
 <br>
 
-![alt text](130.png)
+![alt text](../130.png)
