@@ -1,21 +1,4 @@
-import express from "express";
-import fetch from "node-fetch";
-import path from "path";
-
-const app = express();
-const PORT = 3000;
-const __dirname = path.resolve();
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/weather", async (req, res) => {
-  const WEATHER_API_KEY = "1ff6c155f01e8c071ff660274ec15528";
-  const CITY = "Astana";
-  const UNITS = "metric";
-
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${WEATHER_API_KEY}&units=${UNITS}`
+ppid=${WEATHER_API_KEY}&units=${UNITS}`
     );
     const data = await response.json();
     if (data.cod !== 200) {
